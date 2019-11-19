@@ -1,6 +1,6 @@
 import java.util.Random
 
-class RandomBooleanKotlin {
+class RandomBoolean {
     private val random = Random()
     private val javaRandom = RandomBooleanJava()
 
@@ -10,9 +10,7 @@ class RandomBooleanKotlin {
         } else null
     }
 
-    fun nextNotNull(): Boolean {
-        return next() ?: false
-    }
+    fun nextNotNull(): Boolean = next() ?: false
 
     //// Calling the Java class
 
@@ -26,9 +24,7 @@ class RandomBooleanKotlin {
      * https://kotlinlang.org/docs/reference/java-interop.html#nullability-annotations
      * In those cases the compiler/editor will treat the return value as a non platform type.
      */
-    fun nextNotNullFromJava(): Boolean {
-        return javaRandom.next() ?: false
-    }
+    fun nextNotNullFromJava(): Boolean = javaRandom.next() ?: false
 
     fun nextNotNullFromJavaOptional(): Boolean {
         return javaRandom.optionalNext().orElse(false)
