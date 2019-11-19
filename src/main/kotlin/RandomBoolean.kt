@@ -1,4 +1,4 @@
-import java.util.Random
+import java.util.*
 
 class RandomBoolean {
     private val random = Random()
