@@ -8,4 +8,8 @@ class RandomBooleanKotlin {
             random.nextBoolean()
         } else null
     }
+
+    fun nextNotNull(): Boolean {
+        return next() ?: nextNotNull()
+    }
 }
