@@ -8,21 +8,12 @@ class DifficultChoice {
      * @return MarketingCategory to be used
      */
     fun findMarketingCategory(person: Person): MarketingCategory {
-        return when (isMinor(person)) {
-            true -> {
-                when (person.gender) {
-                    Person.Gender.MALE -> MarketingCategory.BOYS
-                    Person.Gender.FEMALE -> MarketingCategory.GIRLS
-                    else -> MarketingCategory.KIDS
-                }
-            }
-            false -> {
-                when (person.gender) {
-                    Person.Gender.MALE -> MarketingCategory.MEN
-                    Person.Gender.FEMALE -> MarketingCategory.WOMEN
-                    else -> MarketingCategory.ADULTS
-                }
-            }
+        return when (isMinor(person) to person.gender) {
+            true to Person.Gender.MALE -> MarketingCategory.BOYS
+            true to Person.Gender.FEMALE -> MarketingCategory.GIRLS
+            false to Person.Gender.MALE -> MarketingCategory.MEN
+            false to Person.Gender.FEMALE -> MarketingCategory.WOMEN
+            else -> MarketingCategory.GENERAL
         }
     }
 
@@ -47,7 +38,7 @@ data class Person (
 }
 
 enum class MarketingCategory {
-    GIRLS, BOYS, KIDS, WOMEN, MEN, ADULTS
+    GIRLS, BOYS, WOMEN, MEN, GENERAL
 }
 
 enum class Location(val country: String, val ageOfMajority: Int?) {

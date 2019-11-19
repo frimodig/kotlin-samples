@@ -15,7 +15,6 @@ public class DifficultChoiceJava {
             if (person.getGender() == Person.Gender.FEMALE) {
                 return MarketingCategory.GIRLS;
             }
-            return MarketingCategory.KIDS;
         }
         if (person.getGender() == Person.Gender.MALE) {
             return MarketingCategory.MEN;
@@ -23,7 +22,7 @@ public class DifficultChoiceJava {
         if (person.getGender() == Person.Gender.FEMALE) {
             return MarketingCategory.WOMEN;
         }
-        return MarketingCategory.ADULTS;
+        return MarketingCategory.GENERAL;
     }
 
     private Boolean isMinor(PersonJava person) {
