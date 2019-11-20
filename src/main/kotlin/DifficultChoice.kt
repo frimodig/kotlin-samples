@@ -1,12 +1,7 @@
 class DifficultChoice {
 
-    /**
-     * For spurious marketing reasons we need to check which marketing category we should
-     * use for a person
-     *
-     * @param person Person to market to
-     * @return MarketingCategory to be used
-     */
+    // https://kotlinlang.org/docs/reference/control-flow.html#when-expression
+    // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/to.html
     fun findMarketingCategory(person: Person): MarketingCategory {
         return when (person.isMinor() to person.gender) {
             true to Person.Gender.MALE -> MarketingCategory.BOYS
@@ -21,6 +16,7 @@ class DifficultChoice {
 // https://kotlinlang.org/docs/reference/extensions.html
 fun Person.isMinor(): Boolean = this.age?.let { it < this.location.ageOfMajority ?: return@let false } ?: false
 
+// https://kotlinlang.org/docs/reference/data-classes.html
 data class Person (
         val name: String,
         var age: Int?,
@@ -28,6 +24,7 @@ data class Person (
         val location: Location = Location.UNKNOWN
 ) {
     init {
+        // https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/require.html
         require(name.isNotEmpty())
     }
 
