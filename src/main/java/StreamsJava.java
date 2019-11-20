@@ -34,9 +34,9 @@ public class StreamsJava {
         return createList()
                 .stream()
                 .filter(Objects::nonNull)
-                .filter( s -> s.toLowerCase().contains("j"))
-                .map( s -> new StringBuilder(s).reverse().toString() )
-                .filter( s -> s.startsWith("a"))
+                .filter(s -> s.toLowerCase().contains("j"))
+                .map(s -> new StringBuilder(s).reverse().toString())
+                .filter(s -> s.startsWith("a"))
                 .collect(Collectors.toList());
     }
 }

@@ -1,5 +1,3 @@
-import java.util.stream.LongStream;
-
 public class StringsJava {
 
     public String concatenate(String value1, Double value2) {
