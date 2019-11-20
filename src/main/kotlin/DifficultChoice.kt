@@ -14,4 +14,5 @@ class DifficultChoice {
 }
 
 // https://kotlinlang.org/docs/reference/extensions.html
+// p.s do not do it like this even though you can
 fun Person.isMinor(): Boolean = this.age?.let { it < this.location.ageOfMajority ?: return@let false } ?: false
