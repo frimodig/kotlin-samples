@@ -25,9 +25,18 @@ public class StreamsJava {
     public String find(String x) {
         return createList()
                 .stream()
-                .filter(Objects::nonNull)
                 .filter(x::equals)
                 .findAny()
                 .orElse(null);
+    }
+
+    public List<String> complicatedFind() {
+        return createList()
+                .stream()
+                .filter(Objects::nonNull)
+                .filter( s -> s.toLowerCase().contains("j"))
+                .map( s -> new StringBuilder(s).reverse().toString() )
+                .filter( s -> s.startsWith("a"))
+                .collect(Collectors.toList());
     }
 }

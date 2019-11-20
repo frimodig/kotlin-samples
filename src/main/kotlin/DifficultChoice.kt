@@ -8,7 +8,7 @@ class DifficultChoice {
      * @return MarketingCategory to be used
      */
     fun findMarketingCategory(person: Person): MarketingCategory {
-        return when (isMinor(person) to person.gender) {
+        return when (person.isMinor() to person.gender) {
             true to Person.Gender.MALE -> MarketingCategory.BOYS
             true to Person.Gender.FEMALE -> MarketingCategory.GIRLS
             false to Person.Gender.MALE -> MarketingCategory.MEN
@@ -16,10 +16,10 @@ class DifficultChoice {
             else -> MarketingCategory.GENERAL
         }
     }
-
-    private fun isMinor(person: Person): Boolean =
-            person.age?.let { it < person.location.ageOfMajority ?: return@let false } ?: false
 }
+
+// https://kotlinlang.org/docs/reference/extensions.html
+fun Person.isMinor(): Boolean = this.age?.let { it < this.location.ageOfMajority ?: return@let false } ?: false
 
 data class Person (
         val name: String,
@@ -27,7 +27,6 @@ data class Person (
         val gender: Gender = Gender.NOT_SPECIFIED,
         val location: Location = Location.UNKNOWN
 ) {
-
     init {
         require(name.isNotEmpty())
     }
