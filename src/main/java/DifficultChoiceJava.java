@@ -9,17 +9,17 @@ public class DifficultChoiceJava {
      */
     public MarketingCategory findMarketingCategory(PersonJava person) {
         if (isMinor(person)) {
-            if (person.getGender() == Person.Gender.MALE) {
+            if (person.getGender() == PersonJava.Gender.MALE) {
                 return MarketingCategory.BOYS;
             }
-            if (person.getGender() == Person.Gender.FEMALE) {
+            if (person.getGender() == PersonJava.Gender.FEMALE) {
                 return MarketingCategory.GIRLS;
             }
         }
-        if (person.getGender() == Person.Gender.MALE) {
+        if (person.getGender() == PersonJava.Gender.MALE) {
             return MarketingCategory.MEN;
         }
-        if (person.getGender() == Person.Gender.FEMALE) {
+        if (person.getGender() == PersonJava.Gender.FEMALE) {
             return MarketingCategory.WOMEN;
         }
         return MarketingCategory.GENERAL;

@@ -4,10 +4,10 @@ public class PersonJava {
 
     private String name;
     private Integer age;
-    private Person.Gender gender;
+    private Gender gender;
     private Location location;
 
-    public PersonJava(String name, Integer age, Person.Gender gender, Location location) {
+    public PersonJava(String name, Integer age, Gender gender, Location location) {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("Name can not be null or empty");
         }
@@ -29,7 +29,7 @@ public class PersonJava {
         this.age = age;
     }
 
-    public Person.Gender getGender() {
+    public Gender getGender() {
         return gender;
     }
 
@@ -37,10 +37,14 @@ public class PersonJava {
         return location;
     }
 
+    public enum Gender {
+        MALE, FEMALE, NONE, OTHER, NOT_SPECIFIED
+    }
+
     ///// Private setters to put default values
 
-    private void setGender(Person.Gender gender) {
-        this.gender = Objects.requireNonNullElse(gender, Person.Gender.NOT_SPECIFIED);
+    private void setGender(Gender gender) {
+        this.gender = Objects.requireNonNullElse(gender, Gender.NOT_SPECIFIED);
     }
 
     private void setLocation(Location location) {
