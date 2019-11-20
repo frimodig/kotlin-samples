@@ -40,19 +40,11 @@ public class PersonJava {
     ///// Private setters to put default values
 
     private void setGender(Person.Gender gender) {
-        if (gender == null) {
-            this.gender = Person.Gender.NOT_SPECIFIED;
-        } else {
-            this.gender = gender;
-        }
+        this.gender = Objects.requireNonNullElse(gender, Person.Gender.NOT_SPECIFIED);
     }
 
     private void setLocation(Location location) {
-        if (location == null) {
-            this.location = Location.UNKNOWN;
-        } else {
-            this.location = location;
-        }
+        this.location = Objects.requireNonNullElse(location, Location.UNKNOWN);
     }
 
     ///// Data class needs sensible toString(), equals() & hashcode()
