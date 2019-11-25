@@ -1,29 +1,21 @@
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class StreamsJava {
 
-    private List<String> createList() {
-        List<String> list = new ArrayList<>();
-        list.add("Kotlin");
-        list.add("java");
-        list.add("Clojure");
-        list.add(null);
-        list.add("Scala");
-        return list;
-    }
+    private List<String> list = Arrays.asList("Kotlin", "Java", "Clojure", null, "Scala");
 
     public List<String> filterNull() {
-        return createList()
+        return list
                 .stream()
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
     }
 
     public String find(String x) {
-        return createList()
+        return list
                 .stream()
                 .filter(x::equals)
                 .findAny()
@@ -31,7 +23,7 @@ public class StreamsJava {
     }
 
     public List<String> complicatedFind() {
-        return createList()
+        return list
                 .stream()
                 .filter(Objects::nonNull)
                 .filter(s -> s.toLowerCase().contains("j"))
