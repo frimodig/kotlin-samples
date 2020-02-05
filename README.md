@@ -2,7 +2,7 @@
 
 ##### Some sample classes written in Java and Kotlin to show Kotlin features
 
-This repository exists to provide some examples of code usage for a [presentation](Kotlin presentation.pdf) on Kotlin, without the exposing any
+This repository exists to provide some examples of code usage for a presentation (see Kotlin presentation.pdf) on Kotlin, without the exposing any
 product code. The code within is meant purely as examples, It is definitely not a best practise example and you should
 not copy anything from this code into your own projects.
 
